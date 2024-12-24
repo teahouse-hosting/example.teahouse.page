@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Teahouse Example Website</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#a498b0">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#32283c">
+
+<style>
+:root {
+    color-scheme: light dark;
+    color: light-dark(black, white);
+    background-color: light-dark(#f2f0f5, #32283c);
+}
+a:link { color: light-dark(#0000b3, #b3b3ff); }
+a:visited { color: light-dark(#5c1c96, #dabff3); }
+/*a:hover,a:focus { color: light-dark(, ); }*/
+a:active, a:visited:active { color: light-dark(#b30000, #ffb3b3); }
+body { margin: 2em 0 5em 0; }
+header, main {
+    font-family: helvetica, sans-serif;
+    font-size: 130%;
+    max-width: 70ch;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+h1 { font-size: 2rem; }
+h1, h2, h3, h4 { margin: 1rem 0; }
+section p { white-space: break-spaces; }
+section { margin: 0 0 8rem 0; }
+time { font-style: italic; }
+code {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.25rem;
+}
+code.block, pre code {
+    display: block;
+    overflow: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    line-height: calc(2em + 2rem);
+}
+nav li:after { content: '\2022'; }
+nav li:last-child:after { content: ''; }
+nav li a { padding: 1rem; }
+nav li:first-child a { padding-left: 0; }
+</style>
+</head>
+
+<body>
+  <header>
+    <h1>A Sample</h1>
+  </header>
+
+  <main class="default">
+    <p>This is an example website.</p>
+    <p>This demonstrates basic deployment.</p>
+  </main>
+
+</body>
+</html>
