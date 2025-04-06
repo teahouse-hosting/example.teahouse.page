@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - trunk
-  workflow_dispatch:
-  repository_dispatch:
 
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -19,17 +17,13 @@ jobs:
   publish:
     environment:
       name: teahouse
-      url: https://${{ steps.settings.outputs.bucket }}
+      url: https://example.teahouse.page
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Configure S3
-      uses: teahouse-hosting/configure-s3@trunk
-      id: settings
+    - name: Upload
+      uses: teahouse-hosting/upload@trunk
       with:
         domain: example.teahouse.page
-    - id: install-aws-cli
-      uses: unfor19/install-aws-cli-action@v1
-    - run: |
-        aws s3 sync --delete . s3://${{steps.settings.outputs.bucket}}
+        root: .
